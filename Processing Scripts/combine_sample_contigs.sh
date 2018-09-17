@@ -1,0 +1,9 @@
+Base_dir=/projects/haddad_10422/robert/data
+Samples=${Base_dir}/Combine_triplicate_list.txt
+A1=A_R1.trimmed.host_filtered.fq.gz
+A2=A_R2.trimmed.host_filtered.fq.gz
+B1=B_R1.trimmed.host_filtered.fq.gz
+B2=B_R2.trimmed.host_filtered.fq.gz
+C1=C_R1.trimmed.host_filtered.fq.gz
+C2=C_R2.trimmed.host_filtered.fq.gz
+while IFS= read -r i; do cat ${i}${A1} ${i}${A2} ${i}${B1} ${i}${B2} ${i}${C1} ${i}${C2} > ${Base_dir}/Combined_samples/LS_Metaproteome_triplicate_combined_${i}.fq.gz; done < ${Samples}
